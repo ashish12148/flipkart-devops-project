@@ -1,3 +1,4 @@
+```jsx
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -7,7 +8,7 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("http://127.0.0.1:5000/api/products")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch products");
@@ -19,7 +20,7 @@ function App() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("API Error:", err);
         setError("Unable to load products");
         setLoading(false);
       });
@@ -70,7 +71,6 @@ function App() {
 
       {/* Products */}
       <section className="products">
-
         <h2>Top Deals</h2>
 
         {loading && (
@@ -87,7 +87,7 @@ function App() {
             {products.map((product) => (
               <div
                 className="product-card"
-                key={product.id}
+                key={product._id}
               >
 
                 <div className="product-image">
@@ -127,3 +127,4 @@ function App() {
 }
 
 export default App;
+```
