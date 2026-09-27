@@ -1,4 +1,3 @@
-```jsx
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -8,7 +7,7 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/products")
+    fetch("http://13.204.68.161:5000/api/products")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch products");
@@ -127,4 +126,3 @@ function App() {
 }
 
 export default App;
-```
